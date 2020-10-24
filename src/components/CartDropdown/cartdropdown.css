@@ -1,0 +1,76 @@
+.tip{
+    z-index: 11;
+    position: absolute;
+    top : 72px;
+    right: 30px;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    background-color: white;
+    border-left : 1px solid #c9cece;
+    border-top : 1px solid #c9cece;
+}
+.cart-dropdown {
+    z-index: 10;
+    position: absolute;
+    top : 77px;
+    right: 10px;
+    width: 300px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: white;
+    overflow-y: auto;
+    border : 1px solid #c9cece;
+}
+.cart-dropdown::-webkit-scrollbar-thumb{
+    width: 4px;
+    background-color: darkslategrey;
+}
+.cart-dropdown::-webkit-scrollbar {
+    width: 4px;
+    background-color: white;
+}
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0px;
+    overflow-y: visible;
+}
+.cart-items > span {
+    padding: 40px 30px;
+}
+.cart-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    color:black;
+
+}
+.cart-item > .delete-btn {
+    margin-left: auto;
+    height: 25px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.item-detail {
+    padding-left: 20px;
+}
+.item-image {
+    width:65px;
+    height: 100%;
+    margin-left: 10px;
+}
+
+@media only screen and (max-width :600px) {
+    .cart-dropdown {
+        width: 200px;
+        height: 220px;
+    }
+    .cart-item > .delete-btn {
+        height: 20px;
+    }
+}
