@@ -20,13 +20,13 @@ class Checkout extends React.Component{
         });
         this.setState({'totalAmount':totalAmount});
     }
-
     async handlePayNowClick(event){
+        event.target.setAttribute('disabled','true');
         // Get Stripe.js instance
         const stripe = await stripePromise;
 
         // Call your backend to create the Checkout Session
-        const response = await fetch('/create-checkout-session', {
+        const response = await fetch('/create-checkout-session',{
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -37,18 +37,20 @@ class Checkout extends React.Component{
 
         const session = await response.json();
 
+        /*if(!session.ok){
+            alert("Something went wrong!!\nTry Again");
+            event.target.removeAttribute('disabled');
+        }*/
         // When the customer clicks on the button, redirect them to Checkout.
+
         const result = await stripe.redirectToCheckout({
             sessionId: session.id,
         });
-
         if (result.error) {
-            // If `redirectToCheckout` fails due to a browser or network
-            // error, display the localized error message to your customer
-            // using `result.error.message`.
+            alert("Something went wrong!!\nTry Again");
+            event.target.removeAttribute('disabled');
         }
     }
-
     render() {
         return (
             <div className={"center column"} style={{margin:"100px 0"}}>
