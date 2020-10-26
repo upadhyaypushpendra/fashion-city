@@ -17,10 +17,9 @@ export default function Shop(props) {
                                 <div style={{backgroundImage: `url(${item.image})`}} className={"item-pic"} />
                                 <div className={"item-detail"}>
                                     <span className={"item-name"} >{item.name}</span>
-                                    <span className={"item-price"}>{item.price}$</span>
-                                    <img className={"icon"} src={addToCart} alt={"Add to Cart"}  onClick={()=>props.handleAddItem(item)}/>
+                                    <span className={"item-price"}>&#8377;{item.price}</span>
+                                    <img className={"icon"} src={addToCart} alt={"Add to Cart"}  onClick={()=>props.modifyItem("add",item)}/>
                                 </div>
-
                             </div>)
                         })}
                     </div>

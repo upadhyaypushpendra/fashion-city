@@ -5,7 +5,7 @@ import emptyCart from './../../icons/empty-cart.svg';
 import filledCart from './../../icons/filled-cart.svg';
 
 import CartDropdown from "../CartDropdown/cartDropdown";
-export default function Header({handleLinkClick,cartItems,handleDeleteItem,onSignOut,isLoggedIn}){
+export default function Header({handleLinkClick,cartItems,modifyItem,onSignOut,isLoggedIn}){
     const[displayDropdown,setDisplayDropdown] = React.useState(false);
     const handleCartClick = ()=>{
         setDisplayDropdown(!displayDropdown);
@@ -21,7 +21,7 @@ export default function Header({handleLinkClick,cartItems,handleDeleteItem,onSig
                 </div>
 
             </nav>
-            <CartDropdown display={displayDropdown} cartItems={cartItems} handleDeleteItem={handleDeleteItem} handleLinkClick={handleLinkClick}/>
+            <CartDropdown display={displayDropdown} cartItems={cartItems} handleCheckoutClicked={handleCartClick} modifyItem={modifyItem} handleLinkClick={handleLinkClick}/>
         </header>
     );
 }
