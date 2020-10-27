@@ -11,7 +11,7 @@
     flex-direction: column;
 }
 .custom-btn {
-    mid-width: 165px;
+    width: 165px;
     height: 50px;
     letter-spacing: 0;
     line-height: 50px;
@@ -22,7 +22,7 @@
     text-transform: uppercase;
     font-family: "Open Sans Condensed", sans-serif !important;
     font-weight: bolder;
-    border: none;
+    border: 1px solid black;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -66,4 +66,15 @@
 }
 section{
     margin: 70px 60px;
+}
+@media only screen and (max-width :600px) {
+    .custom-btn{
+        width: 135px;
+        height: 44px;
+        font-size : 12px;
+    }
+    .inverted {
+        background-color: #fff;
+        color: #000;
+    }
 }

@@ -8,15 +8,19 @@ class Item{
 }
 const categories={
     hats:[
-        new Item(1,"Brown Brim",1100 ,"https://i.ibb.co/ZYW3VTp/brown-brim.png"),
-        new Item(2,"Blue Beanie",1200,"https://i.ibb.co/ypkgK0X/blue-beanie.png"),
-        new Item(3,"Brown Cowboy",2170,"https://i.ibb.co/QdJwgmp/brown-cowboy.png"),
+        new Item(10,"Wesley Fedora-Brown",4200 ,"https://smhttp-ssl-77968-media.nexcesscdn.net/pub/media/catalog/product/cache/742e39a3389b1e0434b3c1c292844b69/w/e/wesley-fedora_10761_brown_01.jpg"),
+        new Item(101,"MELTER BUCKET HAT - WHITE",3200,"https://smhttp-ssl-77968-media.nexcesscdn.net/pub/media/catalog/product/cache/742e39a3389b1e0434b3c1c292844b69/m/e/melter-bucket-hat_10611_white_01.jpg"),
+        new Item(102,"STOUT PORK PIE - DARK BRICK",4130,"https://smhttp-ssl-77968-media.nexcesscdn.net/pub/media/catalog/product/cache/742e39a3389b1e0434b3c1c292844b69/s/t/stout-pork-pie_10764_drbrk_01.jpg"),
+        new Item(1,"STOUT PORK PIE - BLACK/BLACK",1100 ,"https://smhttp-ssl-77968-media.nexcesscdn.net/pub/media/catalog/product/cache/742e39a3389b1e0434b3c1c292844b69/s/t/stout-pork-pie_10764_bkblk_01.jpg"),
+        new Item(2,"BROOD SNAP CAP - BROWN/KHAKI",1200,"https://smhttp-ssl-77968-media.nexcesscdn.net/pub/media/catalog/product/cache/742e39a3389b1e0434b3c1c292844b69/b/r/brood-snap-cap_10770_brkhk_01.jpg"),
+        new Item(3,"Brown Cowboy",2170,"https://media.gettyimages.com/photos/shes-got-style-picture-id517872559?k=6&m=517872559&s=612x612&w=0&h=W-PDgZMy341eVdgtgFu9g8UTY_IUq4Hk25ISBAzKjIA="),
         new Item(4,"Grey Brim",1750,"https://i.ibb.co/RjBLWxB/grey-brim.png"),
         new Item(5,"Green Beanie",560,"https://i.ibb.co/YTjW3vF/green-beanie.png"),
         new Item(6,"Palm Tree Cap",980,"https://i.ibb.co/rKBDvJX/palm-tree-cap.png"),
         new Item(7,"Red Beanie",560,"https://i.ibb.co/bLB646Z/red-beanie.png"),
         new Item(8,"Wolf Cap",1020,"https://i.ibb.co/1f2nWMM/wolf-cap.png"),
         new Item(9,"Blue Snapback",1190,"https://i.ibb.co/X2VJP2W/blue-snapback.png"),
+        new Item(103,"Orange Cloche Hat",599,"https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1287234/2016/3/31/11459407671748-FabSeasons-Women-Caps-4371459407671119-1.jpg"),
     ],
     sneakers:[
         new Item(21,"Adidas NMD",3220,"https://i.ibb.co/0s3pdnc/adidas-nmd.png"),

@@ -73,6 +73,14 @@ class Checkout extends React.Component{
                 </div>
                 { this.props.cartItems.length > 0 && <div className={"total-price"} >Total Amount &nbsp; : &nbsp;&#8377;&nbsp;{this.state.totalAmount} </div> }
                 <button className={"pay-btn"} disabled={this.props.cartItems.length <= 0} role="link" onClick={this.handlePayNowClick}>Proceed to Payment</button>
+                <p style={{color:"red",fontSize:"2vw"}}>
+                    Test Card Details
+                    <ul>
+                        <li>Card No : 4242 4242 4242 4242</li>
+                        <li>Exp. Date : 01/21</li>
+                        <li>CV : 123</li>
+                    </ul>
+                </p>
             </div>
 
         );

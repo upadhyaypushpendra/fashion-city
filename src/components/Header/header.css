@@ -22,6 +22,7 @@
     align-self: center;
     font-weight: bolder;
     font-size: 32px;
+    color : #009ce3;
 }
 .navigation {
     width:80%;
@@ -29,9 +30,10 @@
     justify-content: flex-end;
 }
 .nav-item{
-    width: 25%;
+    width: 120px;
     font-size: 20px;
     padding: 0 10px;
+    flex-direction: column;
     cursor: pointer;
 }
 .nav-item:hover {
@@ -39,11 +41,14 @@
     color:black;
 }
 @media only screen and (max-width: 800px) {
+    .header {
+        height: 60px;
+    }
     .logo{
         width:40px;
     }
     .nav-item{
-        width: 40%;
+        width: 80px;
         font-size: 12px;
     }
     .app-title{

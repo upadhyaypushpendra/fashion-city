@@ -4,6 +4,20 @@ import DrawerMenu from "../Drawer/drawer";
 import categories from "../../categories";
 import addToCart from './../../icons/add-to-cart.svg';
 
+function Item(props){
+    return (
+        <div key={props.item.id} className={"item"} >
+            <div style={{backgroundImage: `url(${props.item.image})`}} className={"item-pic"} />
+            <div className={"item-detail"}>
+                <div className={"column"} >
+                    <span className={"item-name"} >{props.item.name}</span>
+                    <span className={"item-price"}>&#8377;{props.item.price}</span>
+                </div>
+                <img className={"icon"} src={addToCart} alt={"Add to Cart"}  onClick={()=>props.modifyItem("add",props.item)}/>
+            </div>
+        </div>
+    );
+};
 export default function Shop(props) {
     return (
         <>
@@ -13,14 +27,7 @@ export default function Shop(props) {
                     <h1>{props.match.params.category.toUpperCase()}</h1>
                     <div className={"items"}>
                         {categories[`${props.match.params.category}`].map((item)=>{
-                            return (<div key={item.id} className={"item"} >
-                                <div style={{backgroundImage: `url(${item.image})`}} className={"item-pic"} />
-                                <div className={"item-detail"}>
-                                    <span className={"item-name"} >{item.name}</span>
-                                    <span className={"item-price"}>&#8377;{item.price}</span>
-                                    <img className={"icon"} src={addToCart} alt={"Add to Cart"}  onClick={()=>props.modifyItem("add",item)}/>
-                                </div>
-                            </div>)
+                            return (<Item {...props} item={item}/>)
                         })}
                     </div>
                 </div>

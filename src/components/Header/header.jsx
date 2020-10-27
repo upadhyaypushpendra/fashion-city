@@ -1,6 +1,7 @@
 import React from "react";
 import './header.css';
-import logo from './../../icons/logo.svg';
+import logo from './../../icons/logo.png';
+
 import emptyCart from './../../icons/empty-cart.svg';
 import filledCart from './../../icons/filled-cart.svg';
 
@@ -16,8 +17,9 @@ export default function Header({handleLinkClick,cartItems,modifyItem,onSignOut,i
             <span  className={"app-title"}>Fashion City</span>
             <nav className={"navigation"}>
                 {isLoggedIn ? <div className={"center nav-item"}  onClick={()=>onSignOut()} >SIGN OUT</div> : <div className={"center nav-item"}  onClick={()=>handleLinkClick("/login")} >SIGN IN</div>}
-                <div className={"nav-item center "} onClick={handleCartClick} >
+                <div className={"nav-item center"} onClick={handleCartClick} >
                     <img className={"icon"} alt={"Cart"} src={ cartItems.length > 0 ? filledCart  : emptyCart}  />
+                    <div style={{fontSize:"12px"}}>Cart</div>
                 </div>
 
             </nav>
