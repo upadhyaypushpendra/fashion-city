@@ -21,7 +21,7 @@
     width: 25%;
     align-self: center;
     font-weight: bolder;
-    font-size: 34px;
+    font-size: 32px;
 }
 .navigation {
     width:80%;
@@ -39,8 +39,15 @@
     color:black;
 }
 @media only screen and (max-width: 800px) {
-    .nav-item{
-        width: 30%;
-        font-size: 16px;
+    .logo{
+        width:40px;
     }
+    .nav-item{
+        width: 40%;
+        font-size: 12px;
+    }
+    .app-title{
+        width: 45%;
+        font-size: 18px;
+    }   
 }

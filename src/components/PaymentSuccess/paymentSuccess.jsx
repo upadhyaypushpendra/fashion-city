@@ -17,7 +17,6 @@ class PaymentSuccess extends React.Component {
         fetch(`https://fashion-city-server.herokuapp.com/payment_success?session_id=${this.sessionId}`)
             .then(res=> res.json())
             .then(response=> {
-                console.log(response);
                 this.setState({fetchCompleted:true,response:response});
             }).catch(error=>{
             console.log(error);
