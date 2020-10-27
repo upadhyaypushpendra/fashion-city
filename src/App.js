@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from "./components/Header/header";
-import {Switch,Route} from "react-router-dom";
+import {Switch,Route, Redirect} from "react-router-dom";
 import Home from "./components/Home/home";
 import SignIn from "./components/SignIn/signin";
 import Shop from "./components/Shop/shop";
