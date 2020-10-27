@@ -26,7 +26,7 @@ class Checkout extends React.Component{
         const stripe = await stripePromise;
 
         // Call your backend to create the Checkout Session
-        const response = await fetch('/create-checkout-session',{
+        const response = await fetch('https://fashion-city-server.herokuapp.com/create-checkout-session',{
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

@@ -14,7 +14,7 @@ class PaymentSuccess extends React.Component {
     }
     componentDidMount() {
         //fetch(`/test`)
-        fetch(`/payment_success?session_id=${this.sessionId}`)
+        fetch(`https://fashion-city-server.herokuapp.com/payment_success?session_id=${this.sessionId}`)
             .then(res=> res.json())
             .then(response=> {
                 console.log(response);
@@ -22,6 +22,7 @@ class PaymentSuccess extends React.Component {
             }).catch(error=>{
             console.log(error);
         });
+
     }
     render() {
         this.sessionId= QueryString.parse(this.props.location.search)['session_id'];
