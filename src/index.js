@@ -1,6 +1,6 @@
 import React from 'react';
 import  ReactDOM from 'react-dom';
-import {Redirect,BrowserRouter,Switch,Route} from 'react-router-dom'
+import {BrowserRouter,Switch,Route} from 'react-router-dom'
 
 import './index.css';
 import App from './App';
@@ -10,7 +10,6 @@ ReactDOM.render(
   <BrowserRouter>
       <Switch>
           <Route path={"/"} component={App} />
-          <Redirect to={"/"} />
       </Switch>
   </BrowserRouter>,
   document.getElementById('root')
