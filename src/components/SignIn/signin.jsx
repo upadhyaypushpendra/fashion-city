@@ -107,15 +107,15 @@ class SignUpForm extends React.Component {
                         <label className="form-input-label">Display Name</label>
                     </div>
                     <div className="group">
-                        <input className="form-input" value={this.state.username} onChange={this.handleInputChange} name="username" type="email"  required={true}  autoComplete={"off"} ref={signUpEmail} />
+                        <input className="form-input" value={this.state.username} onChange={this.handleInputChange} name="username" type="email"  required={true}  autoComplete={"off"}  />
                         <label className="form-input-label">Email</label>
                     </div>
                     <div className="group">
-                        <input className="form-input" value={this.state.password} onChange={this.handleInputChange} name="password" type="password" required={true}  autoComplete={"off"} ref={signUpPassword} />
+                        <input className="form-input" value={this.state.password} onChange={this.handleInputChange} name="password" type="password" required={true}  autoComplete={"off"}  />
                         <label className="form-input-label">Password</label>
                     </div>
                     <div className="group">
-                        <input className="form-input" value={this.state.confirmPassword} onChange={this.handleInputChange} name="confirmPassword" type="password" required={true}  autoComplete={"off"} ref={signUpConfirmPassword} />
+                        <input className="form-input" value={this.state.confirmPassword} onChange={this.handleInputChange} name="confirmPassword" type="password" required={true}  autoComplete={"off"} />
                         <label className="form-input-label">Confirm Password</label>
                     </div>
                     <div className="buttons">
@@ -128,7 +128,7 @@ class SignUpForm extends React.Component {
 }
 
 export default function SignIn(props) {
-    if(props.isLoggedIn) onSignIn();
+    if(props.isLoggedIn) props.onSignIn();
     return (
         <div className={"signin-and-signup"}>
             <SignInForm {...props} />
