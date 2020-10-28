@@ -14,7 +14,7 @@ export default function Header({handleLinkClick,cartItems,modifyItem,onSignOut,i
     return (
         <header className={"header"}>
             <img  src={logo} className={"logo center"} alt={"Shop"} onClick={()=>handleLinkClick("/")}/>
-            <span  className={"app-title"}>Fashion City</span>
+            <span  className={"app-title"} onClick={()=>handleLinkClick("/")} >Fashion City</span>
             <nav className={"navigation"}>
                 {isLoggedIn ? <div className={"center nav-item"}  onClick={()=>onSignOut()} >SIGN OUT</div> : <div className={"center nav-item"}  onClick={()=>handleLinkClick("/login")} >SIGN IN</div>}
                 <div className={"nav-item center"} onClick={handleCartClick} >

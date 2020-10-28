@@ -27,7 +27,7 @@ export default function Shop(props) {
                     <h1>{props.match.params.category.toUpperCase()}</h1>
                     <div className={"items"}>
                         {categories[`${props.match.params.category}`].map((item)=>{
-                            return (<Item {...props} item={item}/>)
+                            return (<Item key={item.id} {...props} item={item}/>)
                         })}
                     </div>
                 </div>
