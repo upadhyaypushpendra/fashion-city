@@ -5,7 +5,7 @@ puGitLink.setAttribute("target","_blank");
 
 let puGitButtonDiv = document.createElement('div');
 puGitButtonDiv.style.backgroundImage = "url(https://i.ibb.co/M5XB8jS/git.png)";
-puGitButtonDiv.style.backgroundColor = "transparent";
+puGitButtonDiv.style.backgroundColor = "white";
 puGitButtonDiv.style.position = "absolute";
 puGitButtonDiv.style.right = "30px";
 puGitButtonDiv.style.bottom = "30px";
@@ -28,7 +28,7 @@ puLinkedInLink.setAttribute("target","_blank");
 
 let puLinkedInButtonDiv = document.createElement('div');
 puLinkedInButtonDiv.style.backgroundImage = `url("https://i.ibb.co/NW6S90t/linkedIn.png")`;
-puGitButtonDiv.style.backgroundColor = "transparent";
+puGitButtonDiv.style.backgroundColor = "white";
 puLinkedInButtonDiv.style.position = "absolute";
 puLinkedInButtonDiv.style.right = "80px";
 puLinkedInButtonDiv.style.bottom = "30px";
