@@ -22,7 +22,7 @@ puGitLink.appendChild(puGitButtonDiv);
 document.body.appendChild(puGitLink);
 
 let puLinkedInLink = document.createElement("a");
-puLinkedInLink.setAttribute("href","https://www.linkedin.com/in/pushpendra-upadhyay-3440ab174/");
+puLinkedInLink.setAttribute("href","https://www.linkedin.com/in/upadhyay-pushpendra/");
 puLinkedInLink.setAttribute("target","_blank");
 
 
