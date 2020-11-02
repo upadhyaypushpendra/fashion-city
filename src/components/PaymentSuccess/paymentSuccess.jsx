@@ -55,7 +55,7 @@ export default function PaymentSuccess(props) {
                                     </p>
                                 </div>
                             </div>
-                            <OrderDetailRow detailKey={"Total Amount Paid"} detailValue={response.amount_total}/>
+                            <OrderDetailRow detailKey={"Total Amount Paid"} detailValue={"Rs. "+response.amount_total}/>
                         </div>
                         <div className={"divider"} />
                         <h5>
