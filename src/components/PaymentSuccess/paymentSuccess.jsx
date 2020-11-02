@@ -2,11 +2,11 @@ import React, {useEffect, useState} from 'react';
 import * as QueryString from 'query-string';
 import './paymentSuccess.css';
 
-function OrderDetailRow({key,value}){
+function OrderDetailRow({detailKey,detailValue}){
     return (
         <div className={"detail_row row"}>
-            <div className={"detail_key"}>{key}&nbsp;:</div>
-            <div className={"detail_value"}>{value}</div>
+            <div className={"detail_key"}>{detailKey}&nbsp;:</div>
+            <div className={"detail_value"}>{detailValue}</div>
         </div>
     );
 }
