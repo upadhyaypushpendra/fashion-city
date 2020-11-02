@@ -36,8 +36,8 @@ export default function PaymentSuccess(props) {
                         <div className={"divider"}/>
                         <div className={"order_detail"}>
                             <h1>Order Details</h1>
-                            <OrderDetailRow key={"Name"} value={response.name}/>
-                            <OrderDetailRow key={"Email"} value={response.email}/>
+                            <OrderDetailRow detailKey={"Name"} detailValue={response.name}/>
+                            <OrderDetailRow detailKey={"Email"} detailValue={response.email}/>
                             <div className={"detail_row row"}>
                                 <div className={"detail_key"}>Shipping Address : </div>
                                 <div className={"detail_value"}>
@@ -55,7 +55,7 @@ export default function PaymentSuccess(props) {
                                     </p>
                                 </div>
                             </div>
-                            <OrderDetailRow key={"Total Amount Paid"} value={response.amount_total}/>
+                            <OrderDetailRow detailKey={"Total Amount Paid"} detailValue={response.amount_total}/>
                         </div>
                         <div className={"divider"} />
                         <h5>
