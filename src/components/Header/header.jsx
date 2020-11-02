@@ -1,12 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
 import './header.css';
 import logo from './../../icons/logo.png';
-
 import emptyCart from './../../icons/empty-cart.svg';
 import filledCart from './../../icons/filled-cart.svg';
 
 import CartDropdown from "../CartDropdown/cartDropdown";
-export default function Header({handleLinkClick,cartItems,modifyItem,onSignOut,isLoggedIn}){
+import {LogInContext} from "../../App";
+
+export default function Header({handleLinkClick,cartItems,modifyItem,onSignOut}){
+    const isLoggedIn = useContext(LogInContext);
     const[displayDropdown,setDisplayDropdown] = React.useState(false);
     const handleCartClick = ()=>{
         setDisplayDropdown(!displayDropdown);

@@ -8,6 +8,7 @@ import Shop from "./components/Shop/shop";
 import Checkout from "./components/Checkout/chekout";
 import PaymentSuccess from "./components/PaymentSuccess/paymentSuccess";
 
+export const LogInContext = React.createContext(null);
 
 function App(props) {
     const [cartItems,setCartItems] = React.useState(JSON.parse(localStorage.getItem('cartItems')) || []);
@@ -63,16 +64,18 @@ function App(props) {
         setCartItems([]);
     };
     return (
-        <div className="App">
-            <Header handleLinkClick={handleLinkClick} isLoggedIn={isLoggedIn} onSignOut={onSignOut} cartItems={cartItems} modifyItem={modifyItem} />
-            <Switch>
-                <Route path={"/login"} component={(props)=><SignIn isLoggedIn={isLoggedIn} onSignIn={onSignIn} onSignOut={onSignOut} {...props}/>}/>
-                <Route path={"/payment_success"} component={(props)=> <PaymentSuccess onPaymentSuccess={onPaymentSuccess} {...props}/>}/>
-                <Route path={"/checkout"} component={(props)=> <Checkout cartItems={cartItems} modifyItem={modifyItem} handleLinkClick={handleLinkClick} {...props}/>}/>
-                <Route exact={true} path={"/shop/:category"} component={(props)=><Shop modifyItem={modifyItem} handleLinkClick={handleLinkClick} {...props}/>} />
-                <Route path={"/"} component={(props)=> <Home handleLinkClick={handleLinkClick} {...props}/>}/>
-            </Switch>
-        </div>
+        <LogInContext.Provider value={isLoggedIn} >
+            <div className="App">
+                <Header handleLinkClick={handleLinkClick} onSignOut={onSignOut} cartItems={cartItems} modifyItem={modifyItem} />
+                <Switch>
+                    <Route path={"/login"} component={(props)=><SignIn onSignIn={onSignIn} onSignOut={onSignOut} {...props}/>}/>
+                    <Route path={"/payment_success"} component={(props)=> <PaymentSuccess onPaymentSuccess={onPaymentSuccess} {...props}/>}/>
+                    <Route path={"/checkout"} component={(props)=> <Checkout cartItems={cartItems} modifyItem={modifyItem} handleLinkClick={handleLinkClick} {...props}/>}/>
+                    <Route exact={true} path={"/shop/:category"} component={(props)=><Shop modifyItem={modifyItem} handleLinkClick={handleLinkClick} {...props}/>} />
+                    <Route path={"/"} component={(props)=> <Home handleLinkClick={handleLinkClick} {...props}/>}/>
+                </Switch>
+            </div>
+        </LogInContext.Provider>
     );
 }
 export default App;

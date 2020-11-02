@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 import './signin.css';
 import Authenticator from "../../Authenticator";
 
 import GoogleBtn from "../GoogleBtn";
+import {LogInContext} from "../../App";
 
 class SignInForm extends React.Component {
 
@@ -97,6 +98,7 @@ class SignUpForm extends React.Component {
         }
     };
     render(){
+        console.log(this.context);
         return (
             <div className={"form-container"}>
                 <h2>I do not have a account</h2>
@@ -128,7 +130,8 @@ class SignUpForm extends React.Component {
 }
 
 export default function SignIn(props) {
-    if(props.isLoggedIn) props.onSignIn();
+    const isLoggedIn = useContext(LogInContext);
+    if(isLoggedIn) props.onSignIn();
     return (
         <div className={"signin-and-signup"}>
             <SignInForm {...props} />

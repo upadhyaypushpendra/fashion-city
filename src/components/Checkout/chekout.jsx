@@ -1,26 +1,27 @@
-import React from 'react';
+import React, {useEffect,useContext} from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import './checkout.css';
 import CheckoutItem from "./checkoutItem";
+import {LogInContext} from "../../App";
 
 const stripePromise = loadStripe('pk_test_51HffMDHoj35pmsJhqhxLkfvPxlfk15giHWKYYXKPqjTGiD5UTwnAD50RWT47Av4RqF4J9IDoHTCopQHZJZxdhrlj00j5hfPOuI');
 
-class Checkout extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {totalAmount:0};
-        this.handlePayNowClick=this.handlePayNowClick.bind(this);
-    }
-    componentDidMount() {
-        if( this.props.cartItems === undefined) return 0;
-        if(this.props.cartItems && this.props.cartItems.length === 0) return 0;
-        let totalAmount=0
-        this.props.cartItems.forEach((item,index)=>{
+export default  function Checkout(props) {
+    const [totalAmount,setTotalAmount] = React.useState(0);
+
+    const isLoggedIn = useContext(LogInContext);
+
+    useEffect(()=>{
+        let totalAmount=0;
+        if( props.cartItems === undefined) totalAmount = 0;
+        if(props.cartItems && props.cartItems.length === 0) totalAmount = 0;
+        props.cartItems.forEach((item,index)=>{
             totalAmount+= item.price*item.quantity;
         });
-        this.setState({'totalAmount':totalAmount});
-    }
-    async handlePayNowClick(event){
+        setTotalAmount(totalAmount);
+    },[props.cartItems]);
+
+    const handlePayNowClick= async (event)=>{
         event.target.setAttribute('disabled','true');
         // Get Stripe.js instance
         const stripe = await stripePromise;
@@ -31,19 +32,13 @@ class Checkout extends React.Component{
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                
-            },
-            body: JSON.stringify({items: this.props.cartItems})
-        });
 
+            },
+            body: JSON.stringify({items: props.cartItems})
+        });
         const session = await response.json();
 
-        /*if(!session.ok){
-            alert("Something went wrong!!\nTry Again");
-            event.target.removeAttribute('disabled');
-        }*/
         // When the customer clicks on the button, redirect them to Checkout.
-
         const result = await stripe.redirectToCheckout({
             sessionId: session.id,
         });
@@ -52,39 +47,37 @@ class Checkout extends React.Component{
             event.target.removeAttribute('disabled');
         }
     }
-    render() {
-        return (
-            <div className={"center column"} style={{margin:"100px 0"}}>
-                <div className={"ckt-items"}>
-                    {
-                        (this.props.cartItems && this.props.cartItems.length > 0) ?
-                            (
-                                <>
-                                    {this.props.cartItems.map(cartItem => <CheckoutItem item={cartItem} modifyItem={this.props.modifyItem} key={cartItem.id} /> )}
-                                </>
-                            )
-                            :
-                            <>
-                                <h1 style={{color:"white"}} >Your Cart is Empty !!</h1>
-                                <a href={"/home"}>
-                                    <h2>Shop Now</h2>
-                                </a>
-                            </>
-                    }
-                </div>
-                { this.props.cartItems.length > 0 && <div className={"total-price"} >Total Amount &nbsp; : &nbsp;&#8377;&nbsp;{this.state.totalAmount} </div> }
-                <button className={"pay-btn"} disabled={this.props.cartItems.length <= 0} role="link" onClick={this.handlePayNowClick}>Proceed to Payment</button>
-                <p style={{color:"red",fontSize:"2vw"}}>
-                    Test Card Details
-                    <ul>
-                        <li>Card No : 4242 4242 4242 4242</li>
-                        <li>Exp. Date : 01/21</li>
-                        <li>CV : 123</li>
-                    </ul>
-                </p>
-            </div>
 
-        );
-    }
+    return (
+        <div className={"center column"} style={{margin:"100px 0"}}>
+            <div className={"ckt-items"}>
+                {
+                    (props.cartItems && props.cartItems.length > 0) ?
+                        (
+                            <>
+                                {props.cartItems.map(cartItem => <CheckoutItem item={cartItem} modifyItem={props.modifyItem} key={cartItem.id} /> )}
+                            </>
+                        )
+                        :
+                        <>
+                            <h1 style={{color:"white"}} >Your Cart is Empty !!</h1>
+                            <a href={"/home"}>
+                                <h2>Shop Now</h2>
+                            </a>
+                        </>
+                }
+            </div>
+            { props.cartItems.length > 0 && <div className={"total-price"} >Total Amount &nbsp; : &nbsp;&#8377;&nbsp;<span>{totalAmount}</span> </div> }
+            <button className={"pay-btn"} disabled={props.cartItems.length <= 0 || !isLoggedIn} role="link" onClick={handlePayNowClick}>Proceed to Payment</button>
+            {!isLoggedIn && <div style={{color:"red",fontSize:"2vw",marginBottom:"20px"}}>Please Sign in to purchase..!!</div>}
+            <div style={{color:"red",fontSize:"2vw"}}>
+                Test Card Details
+                <ul>
+                    <li>Card No : 4242 4242 4242 4242</li>
+                    <li>Exp. Date : 01/21</li>
+                    <li>CV : 123</li>
+                </ul>
+            </div>
+        </div>
+    );
 }
-export  default Checkout;

@@ -20,9 +20,21 @@
     text-transform: uppercase;
     font-weight: bold;
     justify-self: left;
+    min-width: 110px;
 }
 .detail_value {
     padding: 5px 10px;
     justify-self: right;
     color: greenyellow;
+}
+@media only screen and (max-width :700px) {
+    h1 {
+        font-size:small;
+    }
+    .detail_key{
+        font-size : x-small;
+    }
+    .detail_value {
+        font-size : x-small;
+    }   
 }
